@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{fragment.css}"/>
+
+</head>
+<body>
+<nav th:fragment="heading">
+    <ul>
+    <li><a th:text = "#{fragments.home}" th:href="@{/}">Home</a></li>
+        <li><a th:text = "#{fragments.students}" th:href="@{/students}">Students</a></li>
+        <li><a th:text = "#{fragments.newstudent}" th:href="@{/newstudent}">New Student</a></li>
+        <li><a th:text = "#{fragments.newnote}" th:href="@{/newnote}">New Note</a></li>
+    </ul>
+</nav>
+
+<footer th:fragment="languages" th:with="currentUrl=(${@thymeleafBeans.removeLangFromUrl()})">
+    <a th:href = "@{${currentUrl}(lang=ie)}">IE</a>
+    <a th:href = "@{${currentUrl}(lang=fr)}">FR</a>
+    <br>
+    <span>&copy; Aphral Griffin</span>
+</footer>
+</body>

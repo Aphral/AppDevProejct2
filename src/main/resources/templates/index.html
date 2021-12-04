@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Homepage</title>
+        <link rel="stylesheet" th:href="@{/styles.css}">
+        <style>
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #256180;
+            }
+
+            li {
+                float: left;
+            }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            li a:hover:not(.active) {
+                background-color: #4793B9;
+            }
+        </style>
+    </head>
+    <body>
+    <header th:insert="fragments.html :: heading"></header>
+        <h1>  <a th:text = "#{index.welcome}">Welcome</a></h1>
+    <footer th:replace="fragments.html :: languages"></footer>
+    </body>
+</html>

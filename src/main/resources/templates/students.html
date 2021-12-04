@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <link rel="stylesheet" type="text/css" th:href="@{../static/styles.css}">
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #256180;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #4793B9;
+        }
+    </style>
+</head>
+<body>
+<header th:insert="fragments.html :: heading"></header>
+<div>
+    <br>
+    <br>
+    <table class="center">
+        <tr>
+            <th>StudentID</th>
+            <th>Email</th>
+        </tr>
+        <tr th:each="student, iterationCount: ${students}" th:class="${iterationCount.odd}? 'odd'" th:object="${student}">
+            <td th:text="*{studentID}"></td>
+            <td><a th:text="*{email}" th:href="'/student/' + *{studentID}"></a></td>
+        </tr>
+    </table>
+</div>
+<br>
+<br>
+<footer th:replace="fragments.html :: languages"></footer>
+</body>
+</html>
